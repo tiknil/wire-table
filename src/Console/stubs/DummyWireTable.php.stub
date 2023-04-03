@@ -1,0 +1,23 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
+use WireTable\Data\Column;
+use WireTable\WireTable;
+
+class DummyClass extends WireTable
+{
+    public function query(): Builder
+    {
+        // TODO: creates query
+    }
+
+    public function columns(): array
+    {
+        return [
+            Column::create(label: 'Header Label', key: 'model_field'),
+        ];
+    }
+}

@@ -1,8 +1,10 @@
 <?php
 
-namespace Tiknil\WireTable;
+namespace WireTable;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use WireTable\Console\MakeWireTableCommand;
 
 class WireTableServiceProvider extends ServiceProvider
 {
@@ -14,33 +16,37 @@ class WireTableServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'wire-table');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'wire-table');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'wire-table');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'wire-table');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        Blade::componentNamespace('WireTable\\Views\\Components', 'wiretable');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('wire-table.php'),
-            ], 'config');
+            ], 'wiretable:config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/wire-table'),
-            ], 'views');*/
+            ], ['wiretable:views']);
 
             // Publishing assets.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/wire-table'),
-            ], 'assets');*/
+            ], 'wiretable:assets');
 
             // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/wire-table'),
-            ], 'lang');*/
+            $this->publishes([
+                __DIR__.'/../lang' => lang_path('vendor/wire-table'),
+            ], 'wiretable:lang');
 
             // Registering package commands.
-            // $this->commands([]);
+            $this->commands([
+                MakeWireTableCommand::class,
+            ]);
         }
     }
 
@@ -51,10 +57,5 @@ class WireTableServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'wire-table');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('wire-table', function () {
-            return new WireTable;
-        });
     }
 }
