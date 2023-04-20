@@ -74,13 +74,13 @@ return [
     |
     | This option controls the icon theme.
     |
-    | Supported: "boostrap", "font-awesome"
+    | Supported: "bs-icons", "fa5" ,"fa6"
     */
-    'icon-theme' => 'bootstrap',
+    'icon-theme' => 'bs-icons',
 
     'icons' => [
         // https://icons.getbootstrap.com/
-        'bootstrap' => [
+        'bs-icons' => [
             'base' => 'bi',
             'sorting' => [
                 'inactive' => 'bi-filter-left',
@@ -89,8 +89,18 @@ return [
             ],
         ],
         // https://fontawesome.com/icons
-        'font-awesome' => [
+        'fa6' => [
             'base' => 'fa-solid',
+            'sorting' => [
+                'inactive' => 'fa-sort',
+                'asc' => 'fa-sort-up',
+                'desc' => 'fa-sort-down',
+            ],
+        ],
+
+        // https://fontawesome.com/v5
+        'fa5' => [
+            'base' => 'fas',
             'sorting' => [
                 'inactive' => 'fa-sort',
                 'asc' => 'fa-sort-up',

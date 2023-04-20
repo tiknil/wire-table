@@ -1,7 +1,7 @@
 <div class="wt">
 
   @once
-    @include('wire-table::style')
+    @include("wire-table::$theme.style")
   @endonce
 
   {{ $this->renderBefore() }}

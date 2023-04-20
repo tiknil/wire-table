@@ -7,10 +7,11 @@ use Illuminate\View\View;
 use Livewire\Component;
 use WireTable\Data\Column;
 use WireTable\Traits\WithPagination;
+use WireTable\Traits\WithSorting;
 
 abstract class WireTable extends Component
 {
-    use WithPagination;
+    use WithPagination, WithSorting;
 
     public string $tableClass = '';
 
