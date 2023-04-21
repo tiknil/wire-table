@@ -8,7 +8,7 @@ return [
     |
     | This option controls the default css theme to use for your table.
     |
-    | Supported: "boostrap5"
+    | Supported: "boostrap5", "bootstrap4"
     */
     'theme' => 'bootstrap5',
 

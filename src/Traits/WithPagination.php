@@ -32,7 +32,9 @@ trait WithPagination
      */
     public function pageSize(): int
     {
-        return config('wire-table.pagination.size');
+        return property_exists($this, 'pageSize')
+            ? $this->pageSize
+            : config('wire-table.pagination.size');
     }
 
     /**

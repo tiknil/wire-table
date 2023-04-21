@@ -27,6 +27,10 @@ trait WithSorting
 
     public function sortBy(string $field): void
     {
+        if (method_exists($this, 'resetPage')) {
+            $this->resetPage();
+        }
+
         $this->sortDir = $this->sortBy === $field
             ? $this->reverseSort()
             : $this->defaultSortDir();
@@ -36,17 +40,23 @@ trait WithSorting
 
     public function initialSortBy(): string
     {
-        return config('wire-table.sorting.by');
+        return property_exists($this, 'initialSortBy')
+            ? $this->initialSortBy
+            : config('wire-table.sorting.by');
     }
 
     public function initialSortDir(): string
     {
-        return config('wire-table.sorting.dir.initial');
+        return property_exists($this, 'initialSortDir')
+            ? $this->initialSortDir
+            : config('wire-table.sorting.dir.initial');
     }
 
     public function defaultSortDir(): string
     {
-        return config('wire-table.sorting.dir.default');
+        return property_exists($this, 'defaultSortDir')
+            ? $this->defaultSortDir
+            : config('wire-table.sorting.dir.default');
     }
 
     public function reverseSort(): string
@@ -58,7 +68,7 @@ trait WithSorting
 
     public function sort(Builder $query, string $sortBy, string $sortDir): Builder
     {
-        return $query->orderBy($sortBy, $sortDir);
+        return $query->reorder()->orderBy($sortBy, $sortDir);
     }
 
     protected function applySorting(Builder $query): Builder

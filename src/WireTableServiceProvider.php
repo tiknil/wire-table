@@ -33,11 +33,6 @@ class WireTableServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/views' => resource_path('views/vendor/wire-table'),
             ], ['wiretable:views']);
 
-            // Publishing assets.
-            $this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/wire-table'),
-            ], 'wiretable:assets');
-
             // Publishing the translation files.
             $this->publishes([
                 __DIR__.'/../lang' => lang_path('vendor/wire-table'),
