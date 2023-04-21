@@ -75,18 +75,20 @@ Include it in your blade file:
 > Remember to include
 > the [livewire javascript and css](https://laravel-livewire.com/docs/2.x/quickstart#install-livewire) in every page
 > where
-> you will be using it:
+> you will be using it.
 
-> The wire tables are just livewire components, so
-> the [livewire documentation for rendering components](https://laravel-livewire.com/docs/2.x/rendering-components)
+> The tables are just livewire components, so
+> the [official livewire documentation](https://laravel-livewire.com/docs/2.x)
 > applies here.
 
 ### Features
 
-See the [Docs](./docs/README.md) for the full documentation.
+#### See the [docs folder](./docs/README.md) for the full documentation.
 
-- [Columns](./docs/Columns.md): data mapping, custom cell blade view or full row view customization.
-- [Row rendering](./docs/Row.md): custom row rendering
+Quick links:
+
+- [Columns](./docs/Columns.md)
+- [Row rendering](./docs/Row.md)
 - [Filters](./docs/Filters.md)
 - [Sorting](./docs/Sorting.md)
 - [Pagination](./docs/Pagination.md)
