@@ -20,7 +20,7 @@ public function columns(): array
             label: '',
             cellView: 'backend.users.actions',
             thStyle: [ 'style' => 'width: 200px' ],
-            tdStyle: [ 'class' => 'table-actions' ],
+            tdStyle: [ 'classList' => 'table-actions' ],
         ),
         ...
     ];
@@ -34,7 +34,7 @@ public function columns(): array
 - `cellView`: When provided, the blade view with that name will be rendered. Use `$item` inside that blade view to refer
   to that row model (e.g. `$item->id` for the user id).
 - `thStyle`: Custom styling for the column th element. Expects a `ElementStyle` object or an array with `style`
-  and `class` keys.
+  and `classList` keys.
 - `tdStyle`: Same as thStyle, but applied to each td element of that column.
 - `dateFormat`: Override the `date-format` option in the config file
 - `map`: A closure, mapping the row model to a custom render string. Useful for simple transformations that does not
