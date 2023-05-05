@@ -22,7 +22,7 @@ return [
     |
     | See: https://carbon.nesbot.com/docs/#api-formatting
     */
-    'date-format' => 'd M Y H:i',
+    'date-format' => 'd M y H:i',
 
     /*
     |--------------------------------------------------------------------------

@@ -10,7 +10,7 @@ Most `Column` parameters are optional, and we can leverage PHP 8.0 named argumen
 public function columns(): array
 {
     return [
-        Column::create(label: __('backend.created_at'), key: 'created_at', sort: true ),
+        Column::create(label: __('backend.created_at'), key: 'created_at', sort: true, dateFormat: 'd M y H:i' ),
         Column::create(
             label: __('backend.name'), 
             key: 'name', 
@@ -36,6 +36,7 @@ public function columns(): array
 - `thStyle`: Custom styling for the column th element. Expects a `ElementStyle` object or an array with `style`
   and `class` keys.
 - `tdStyle`: Same as thStyle, but applied to each td element of that column.
+- `dateFormat`: Override the `date-format` option in the config file
 - `map`: A closure, mapping the row model to a custom render string. Useful for simple transformations that does not
   require a custom view
 - `isRaw`: When true, the content will not be HTML-escaped. Not needed when `cellView` is provided

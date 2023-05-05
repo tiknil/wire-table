@@ -16,6 +16,7 @@ class Column
         public string $cellView,
         public array|ElementStyle|null $thStyle,
         public array|ElementStyle|null $tdStyle,
+        public string|null $dateFormat,
         public Closure|null $map,
         public bool $isRaw = false,
     ) {
@@ -41,6 +42,7 @@ class Column
      * @param  string  $cellView  View for cell rendering
      * @param  array|ElementStyle|null  $thStyle  Styling for th element
      * @param  array|ElementStyle|null  $tdStyle  Styling for td element
+     * @param  string|null  $dateFormat  Carbon date format
      * @param  Closure|null  $map  Map the row data to the cell contents
      * @param  bool  $isRaw  Dangerous. True if data contains some html that should not be escaped.
      * Not required when using a custom view
@@ -53,6 +55,7 @@ class Column
         string $cellView = '',
         array|ElementStyle|null $thStyle = null,
         array|ElementStyle|null $tdStyle = null,
+        string|null $dateFormat = null,
         Closure|null $map = null,
         bool $isRaw = false
     ): self {
@@ -63,6 +66,7 @@ class Column
             cellView: $cellView,
             thStyle: $thStyle,
             tdStyle: $tdStyle,
+            dateFormat: $dateFormat,
             map: $map,
             isRaw: $isRaw
         );
@@ -84,7 +88,7 @@ class Column
         $cellContent = $item->{$this->key};
 
         if ($cellContent instanceof Carbon) {
-            $cellContent = $cellContent->format(config('wire-table.date-format'));
+            $cellContent = $cellContent->translatedFormat($this->dateFormat ?: config('wire-table.date-format'));
         }
 
         return $cellContent ?? '';

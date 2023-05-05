@@ -14,7 +14,7 @@ public function renderRow($item): string|View
 ```html
 
 <tr>
-    <td>{{ $user->created_at->format('d M Y') }}</td>
+    <td>{{ $user->created_at->translatedFormat('d M Y') }}</td>
     <td>{{ $user->name }}</td>
     <td>{{ $user->email }}</td>
 </tr>
@@ -23,5 +23,5 @@ public function renderRow($item): string|View
 This is useful when you have many cells requiring a complex rendering but you don't want to create a single blade file
 for each cell.
 
-> When you use a custom row rendering file, most of the column definition parametrs are not considered
+> When you use a custom row rendering file, most of the column definition parameters are not considered
 > anymore: `cellView`, `map`, `isRaw`, `tdStyle`
