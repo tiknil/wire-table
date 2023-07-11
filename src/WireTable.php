@@ -3,7 +3,7 @@
 namespace WireTable;
 
 use Illuminate\Contracts\Database\Query\Builder;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use WireTable\Data\Column;
 use WireTable\Traits\WithPagination;
@@ -14,6 +14,8 @@ abstract class WireTable extends Component
     use WithPagination, WithSorting;
 
     public string $tableClass = '';
+
+    public string $layoutView = '';
 
     abstract public function query(): Builder;
 
@@ -51,7 +53,7 @@ abstract class WireTable extends Component
             $query = $this->applySorting($query);
         }
 
-        return view('wire-table::component')
+        return view('wire-table::layout')
             ->with([
                 'paginator' => $this->paginator($query),
                 'theme' => $this->theme(),
