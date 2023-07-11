@@ -1,6 +1,7 @@
 ## Features documentation
 
 - [Columns](./Columns.md)
+- [Layout](./Layout.md)
 - [Row rendering](./Row.md)
 - [Filters](./Filters.md)
 - [Sorting](./Sorting.md)

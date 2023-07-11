@@ -29,22 +29,27 @@ abstract class WireTable extends Component
      */
     abstract public function columns(): array;
 
-    public function renderBefore(): string|View
-    {
-        return '';
-    }
-
-    public function renderAfter(): string|View
-    {
-        return '';
-    }
-
     public function renderRow($item): string|View
     {
         return view('wire-table::row', ['item' => $item]);
     }
 
+    public function layout(): string|View
+    {
+        return view($this->layoutView);
+    }
+
     public function render(): View
+    {
+        return $this->renderTable();
+    }
+
+    public function renderTable(): View
+    {
+        return view('wire-table::default')->with($this->layoutData());
+    }
+
+    protected function layoutData(): array
     {
         $query = $this->query();
         $query = $this->filter($query);
@@ -53,21 +58,22 @@ abstract class WireTable extends Component
             $query = $this->applySorting($query);
         }
 
-        return view('wire-table::layout')
-            ->with([
-                'paginator' => $this->paginator($query),
-                'theme' => $this->theme(),
-                'iconTheme' => $this->iconTheme(),
-            ]);
+        $paginator = $this->paginator($query);
+
+        return [
+            'paginator' => $paginator,
+            'theme' => $this->theme(),
+            'iconTheme' => $this->iconTheme(),
+        ];
     }
 
     protected function theme(): string
     {
-        return isset($this->theme) ? $this->theme : config('wire-table.theme');
+        return $this->theme ?? config('wire-table.theme');
     }
 
     protected function iconTheme(): string
     {
-        return isset($this->iconTheme) ? $this->iconTheme : config('wire-table.icon-theme');
+        return $this->iconTheme ?? config('wire-table.icon-theme');
     }
 }

@@ -19,18 +19,6 @@ public function filter(Builder $query): Builder
 }
 ```
 
-> ⚠️ the `query()` method should always return the base query, and conditional filtering should be done inside the
-> filter() method
-
-You can render your filters using the `renderBefore` or `renderAfter` methods:
-
-```php
-public function renderBefore(): string|View
-{
-    return view('backend.users.table-filters');
-}
-```
-
 ```html
 <input type="search" class="form-control"
        wire:model.debounce.300ms="searched"
