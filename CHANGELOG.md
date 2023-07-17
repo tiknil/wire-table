@@ -2,6 +2,15 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 0.3.0 - 2023-07-17
+
+- Feature: Added support for table data persistence in the laravel session
+
+## 0.2.0 - 2023-07-12
+
+- Feature: Added support for rendering a custom layout around the table
+- Removed `renderBefore` and `renderAfter` methods
+
 ## 0.1.1 - 2023-05-05
 
 - Feature: Added `dateFormat` parameter to the column definition to override the default config
