@@ -2,6 +2,13 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 0.3.2 - 2023-07-17
+
+- Fix: updated import syntax for Srt helper
+
+I made a mess while publishing the hotfix to version 0.3.1.
+I'm skipping directly to v0.3.2 to fix everythig
+
 ## 0.3.0 - 2023-07-17
 
 - Feature: Added support for table data persistence in the laravel session
