@@ -57,3 +57,37 @@ public function updatingSearched()
     $this->resetPage();
 }
 ```
+
+### Persist filters
+
+WireTable comes with a `WithPersistence` trait that will persist your filters in
+the [Laravel session](https://laravel.com/docs/session).
+
+```php
+use WireTable\Traits\WithPersistence;
+use WireTable\WireTable;
+
+class LayoutTable extends WireTable
+{
+    use WithPersistence;
+
+    protected array $persist = [
+        'search',
+        'role',
+    ];
+    
+    public string $search = '';
+    public string $role = 'default-value';
+    
+    ...
+}
+```
+
+By default, wire-table will use the table namespace as the session data key. You can force a custom session key by
+overriding the `sessionKey` property:
+
+```php
+public string $sessionKey = "custom:session:key"
+```
+
+You can also clear the filters with the `clearPersistence` method.
