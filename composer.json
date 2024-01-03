@@ -20,7 +20,7 @@
         "php": "^8.0|^8.1|^8.2",
         "illuminate/support": "^9.0|^10.0",
         "illuminate/contracts": "^9.0|^10.0",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^3.0"
     },
     "require-dev": {
         "laravel/pint": "^1.7",

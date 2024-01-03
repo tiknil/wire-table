@@ -6,12 +6,13 @@ use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use WireTable\Data\Column;
+use WireTable\Traits\ResetPageOnUpdate;
 use WireTable\Traits\WithPagination;
 use WireTable\Traits\WithSorting;
 
 abstract class WireTable extends Component
 {
-    use WithPagination, WithSorting;
+    use ResetPageOnUpdate, WithPagination, WithSorting;
 
     public string $tableClass = '';
 
@@ -46,7 +47,7 @@ abstract class WireTable extends Component
 
     public function renderTable(): View
     {
-        return view('wire-table::default')->with($this->layoutData());
+        return view('wire-table::layout')->with($this->layoutData());
     }
 
     protected function layoutData(): array

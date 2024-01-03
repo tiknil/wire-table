@@ -28,5 +28,5 @@
   </div>
 
   {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links() }}
-  
+
 </div>
