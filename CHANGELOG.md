@@ -2,6 +2,11 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.0.0 - 2024-01-03
+
+- BREAKING: wire-table now requires livewire 3.0
+- BREAKING: ResetPageOnUpdate trait is now included by default
+
 ## 0.3.2 - 2023-07-17
 
 - Fix: updated import syntax for Srt helper

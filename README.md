@@ -12,8 +12,12 @@ while allowing easy customization.
 `wire-table` requires PHP >= 8.0 and Laravel >= 9.0
 
 ```bash
-composer require livewire/livewire:^2.0 tiknil/wire-table
+composer require livewire/livewire:^3.0 tiknil/wire-table
 ```
+
+> [!NOTE]  
+> Since v1.0.0, wire-table requires livewire 3.0. Use v0.3.2 if you are supporting livewire 2
+
 
 **Optional** you can publish wire-table files for further customization:
 

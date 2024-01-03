@@ -34,6 +34,8 @@ This can be done in two ways:
 
 **The `ResetPageOnUpdate` trait**:
 
+This trait is included by default since v1.0.0
+
 ```php
 use \WireTable\Traits\ResetPageOnUpdate;
 
