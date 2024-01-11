@@ -3,14 +3,15 @@
 All notable changes to `wire-table` will be documented in this file
 
 
-## 1.0.1 - 2024-01-11
-
+## 1.1.0 - 2024-01-11
+- BREAKING: ResetPageOnUpdate is not included by default, but it's automatically added when using the artisan `make:wiretable` command
 - Fix: updated the stub namespace to the new Livewire v3 default namespace
+- Fix: updated PHP and Laravel dependencies according to new livewire requirements
 
 ## 1.0.0 - 2024-01-03
 
 - BREAKING: wire-table now requires livewire 3.0
-- BREAKING: ResetPageOnUpdate trait is now included by default
+- BREAKING: ResetPageOnUpdate trait is now included by default (reversed in v1.1.0)
 
 ## 0.3.2 - 2023-07-17
 
