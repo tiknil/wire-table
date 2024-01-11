@@ -2,6 +2,11 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+
+## 1.0.1 - 2024-01-11
+
+- Fix: updated the stub namespace to the new Livewire v3 default namespace
+
 ## 1.0.0 - 2024-01-03
 
 - BREAKING: wire-table now requires livewire 3.0
