@@ -9,7 +9,7 @@ while allowing easy customization.
 
 ## Installation
 
-`wire-table` requires PHP >= 8.0 and Laravel >= 9.0
+`wire-table` requires PHP >= 8.1 and Laravel >= 10.0
 
 ```bash
 composer require livewire/livewire:^3.0 tiknil/wire-table

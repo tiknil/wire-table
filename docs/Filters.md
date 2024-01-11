@@ -34,7 +34,7 @@ This can be done in two ways:
 
 **The `ResetPageOnUpdate` trait**:
 
-This trait is included by default since v1.0.0
+This trait is included by default since v1.1.0 when you use the artisan `make:wiretable` command.
 
 ```php
 use \WireTable\Traits\ResetPageOnUpdate;
