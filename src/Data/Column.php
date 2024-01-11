@@ -82,7 +82,7 @@ class Column
         }
 
         if ($this->map !== null) {
-            return $this->map->__invoke($item);
+            return $this->map->__invoke($item, $item->{$this->key} ?? null);
         }
 
         $cellContent = $item->{$this->key};

@@ -22,6 +22,6 @@ class MakeWireTableCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace.'\Livewire';
+        return config('livewire.class_namespace');
     }
 }

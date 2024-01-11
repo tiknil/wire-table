@@ -5,10 +5,13 @@ namespace DummyNamespace;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use WireTable\Data\Column;
+use WireTable\Traits\ResetPageOnUpdate;
 use WireTable\WireTable;
 
 class DummyClass extends WireTable
 {
+    use ResetPageOnUpdate;
+
     public function query(): Builder
     {
         // TODO: creates query
