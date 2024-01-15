@@ -12,17 +12,17 @@ trait WithSorting
     /**
      * Current field to sort by
      */
-    public string $sortBy = '';
+    public string $currentSortBy = '';
 
     /**
      * Current sorting direction (either 'desc' or 'asc')
      */
-    public string $sortDir = '';
+    public string $currentSortDir = '';
 
     public function mountWithSorting(): void
     {
-        $this->sortDir = $this->initialSortDir();
-        $this->sortBy = $this->initialSortBy();
+        $this->currentSortDir = $this->initialSortDir();
+        $this->currentSortBy = $this->initialSortBy();
     }
 
     public function sortBy(string $field): void
@@ -31,11 +31,11 @@ trait WithSorting
             $this->resetPage();
         }
 
-        $this->sortDir = $this->sortBy === $field
+        $this->currentSortDir = $this->currentSortBy === $field
             ? $this->reverseSort()
             : $this->defaultSortDir();
 
-        $this->sortBy = $field;
+        $this->currentSortBy = $field;
     }
 
     public function initialSortBy(): string
@@ -61,7 +61,7 @@ trait WithSorting
 
     public function reverseSort(): string
     {
-        return $this->sortDir === 'asc'
+        return $this->currentSortDir === 'asc'
             ? 'desc'
             : 'asc';
     }
@@ -73,6 +73,6 @@ trait WithSorting
 
     protected function applySorting(Builder $query): Builder
     {
-        return $this->sort($query, $this->sortBy, $this->sortDir);
+        return $this->sort($query, $this->currentSortBy, $this->currentSortDir);
     }
 }

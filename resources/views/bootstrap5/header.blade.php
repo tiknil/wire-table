@@ -12,11 +12,11 @@
       {{ $column->label }}
 
       @if($column->sort)
-        @if($this->sortBy !== $column->key)
+        @if($this->currentSortBy !== $column->key)
           <i class="{{ $icons['base'] }} {{ $icons['sorting']['inactive'] }} text-muted"></i>
-        @elseif($this->sortDir === 'asc')
+        @elseif($this->currentSortDir === 'asc')
           <i class="{{ $icons['base'] }} {{ $icons['sorting']['asc'] }}"></i>
-        @elseif($this->sortDir === 'desc')
+        @elseif($this->currentSortDir === 'desc')
           <i class="{{ $icons['base'] }} {{ $icons['sorting']['desc'] }}"></i>
         @endif
       @endif
