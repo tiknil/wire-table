@@ -2,6 +2,8 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.1.1 - 2024-01-11
+- Fix: JS error when changing sorting due to overlap between sortBy method and property
 
 ## 1.1.0 - 2024-01-11
 - BREAKING: ResetPageOnUpdate is not included by default, but it's automatically added when using the artisan `make:wiretable` command
