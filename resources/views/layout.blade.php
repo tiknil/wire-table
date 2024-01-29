@@ -27,6 +27,6 @@
     </x-wiretable::table>
   </div>
 
-  {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links() }}
+  {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView()) }}
 
 </div>

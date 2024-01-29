@@ -42,11 +42,6 @@ trait WithPagination
      */
     public function paginationView(): string
     {
-        return "wire-table::{$this->theme()}.pagination";
-    }
-
-    public function paginationSimpleView(): string
-    {
-        return "wire-table::{$this->theme()}.simple-pagination";
+        return $this->simplePagination() ? "wire-table::{$this->theme()}.simple-pagination" : "wire-table::{$this->theme()}.pagination";
     }
 }
