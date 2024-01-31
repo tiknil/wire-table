@@ -2,9 +2,13 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.2.0 - 2024-01-31
+- Feat: Added global wiretable:reload event to reload tables data
+- Removed unused layout references
+
 ## 1.1.2 - 2024-01-29
 - Fix: use the proper view for simple pagination links
-- 
+
 ## 1.1.1 - 2024-01-11
 - Fix: JS error when changing sorting due to overlap between sortBy method and property
 
