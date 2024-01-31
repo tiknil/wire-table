@@ -4,6 +4,7 @@ namespace WireTable;
 
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use WireTable\Data\Column;
 use WireTable\Traits\WithPagination;
@@ -58,6 +59,12 @@ abstract class WireTable extends Component
             'theme' => $this->theme(),
             'iconTheme' => $this->iconTheme(),
         ];
+    }
+
+    #[On('wiretable:reload')]
+    public function reload()
+    {
+
     }
 
     protected function theme(): string
