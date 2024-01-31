@@ -13,9 +13,7 @@ abstract class WireTable extends Component
 {
     use WithPagination, WithSorting;
 
-    public string $tableClass = '';
-
-    public string $layoutView = '';
+    protected string $tableClass = '';
 
     abstract public function query(): Builder;
 
@@ -32,11 +30,6 @@ abstract class WireTable extends Component
     public function renderRow($item): string|View
     {
         return view('wire-table::row', ['item' => $item]);
-    }
-
-    public function layout(): string|View
-    {
-        return view($this->layoutView);
     }
 
     public function render(): View
