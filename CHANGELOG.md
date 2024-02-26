@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.3.0 - 2024-02-26
+- Feat: Basic support for bulk selection
+- Renamed bootstrap theme references to bs (backward-compatible)
+
 ## 1.2.0 - 2024-01-31
 - Feat: Added global wiretable:reload event to reload tables data
 - Removed unused layout references
