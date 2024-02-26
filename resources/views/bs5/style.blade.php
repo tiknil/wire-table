@@ -5,17 +5,19 @@
   }
 
   .wt .wt-wrapper .wt-loading-wrap {
+    z-index: 2;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 
-    background-color: var(--wt-overlay-color, rgba(255, 255, 255, 0.5));
+    background-color: var(--wt-overlay-color, rgba(255, 255, 255, 0.7));
 
     {{-- display: flex is set dynamically by livewire --}}
-   align-items: center;
     justify-content: center;
+    align-items: flex-start;
+    padding: 4rem;
   }
 
   .wt .wt-wrapper .wt-loading-wrap .wt-loading {

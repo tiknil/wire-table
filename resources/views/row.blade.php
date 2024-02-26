@@ -1,4 +1,4 @@
-<tr>
+<tr wire:key='{{ $item->{$this->keyField()} }}'>
   @foreach($this->columns() as $column)
     <td @if($column->tdStyle)
           @class($column->tdStyle->classList)

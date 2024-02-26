@@ -8,9 +8,9 @@ return [
     |
     | This option controls the default css theme to use for your table.
     |
-    | Supported: "boostrap5", "bootstrap4"
+    | Supported: "bs5", "bs4"
     */
-    'theme' => 'bootstrap5',
+    'theme' => 'bs5',
 
     /*
     | Additional classes added to the <table> element (e.g. table-bordered or table-striped)

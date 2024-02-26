@@ -69,11 +69,22 @@ abstract class WireTable extends Component
 
     protected function theme(): string
     {
-        return $this->theme ?? config('wire-table.theme');
+        $theme = $this->theme ?? config('wire-table.theme');
+
+        return match ($theme) {
+            'bootstrap5' => 'bs5',
+            'boostrap4' => 'bs4',
+            default => $theme
+        };
     }
 
     protected function iconTheme(): string
     {
         return $this->iconTheme ?? config('wire-table.icon-theme');
+    }
+
+    protected function keyField(): string
+    {
+        return 'id';
     }
 }

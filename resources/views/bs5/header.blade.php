@@ -1,5 +1,6 @@
 <thead class="table-light">
 @foreach($columns as $column)
+
   <th @class(['sortable' => $column->sort, ...$column->thStyle?->classList ?? [] ])
       style="{{ $column->thStyle?->style }}"
 

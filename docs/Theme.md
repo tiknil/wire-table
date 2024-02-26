@@ -15,7 +15,7 @@ You are also free to add some custom classes to the `<table>` html element (e.g.
 You can declare your theme globally inside the configuration file
 
 ```php 
-'theme' => 'bootstrap4',
+'theme' => 'bs4',
 
 'class' => 'table-bordered table-striped'
 ... 
@@ -26,7 +26,7 @@ or locally inside your WireTable component
 
 ```php
 class UsersTable extends WireTable {
-    protected $theme = 'bootstrap4';
+    protected $theme = 'bs4';
     
     protected $iconTheme = 'fa5';
 

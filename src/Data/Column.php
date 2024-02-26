@@ -9,15 +9,15 @@ use Illuminate\View\View;
 
 class Column
 {
-    private function __construct(
+    protected function __construct(
         public string $label,
         public string $key,
         public bool $sort,
         public string $cellView,
         public array|ElementStyle|null $thStyle,
         public array|ElementStyle|null $tdStyle,
-        public string|null $dateFormat,
-        public Closure|null $map,
+        public ?string $dateFormat,
+        public ?Closure $map,
         public bool $isRaw = false,
     ) {
         if (empty($this->key)) {
@@ -55,8 +55,8 @@ class Column
         string $cellView = '',
         array|ElementStyle|null $thStyle = null,
         array|ElementStyle|null $tdStyle = null,
-        string|null $dateFormat = null,
-        Closure|null $map = null,
+        ?string $dateFormat = null,
+        ?Closure $map = null,
         bool $isRaw = false
     ): self {
         return new self(
