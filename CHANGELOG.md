@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+
+## 1.4.0 - 2024-05-08
+- feat: Update support to Laravel 11
+
 ## 1.3.0 - 2024-02-26
 - Feat: Basic support for bulk selection
 - Renamed bootstrap theme references to bs (backward-compatible)
