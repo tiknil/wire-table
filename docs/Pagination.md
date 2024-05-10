@@ -26,3 +26,15 @@ public int $pageSize = 20;
 ```
 
 In case you need to reset the current page (e.g. when a filter changes), you can do so with the `resetPage()` method.
+
+
+### Placement
+
+By default, pagination links and the record count are shown at the bottom, after the table. 
+You can control where to show them by overriding these variables in your component:
+
+```
+protected bool $topPagination = false;
+
+protected bool $bottomPagination = true;
+```

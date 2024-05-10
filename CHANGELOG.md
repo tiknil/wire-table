@@ -2,6 +2,8 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.5.0 - 2024-05-10
+- feat: support for pagination links on top of the table
 
 ## 1.4.0 - 2024-05-08
 - feat: Update support to Laravel 11
