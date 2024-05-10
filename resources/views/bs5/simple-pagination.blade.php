@@ -1,5 +1,5 @@
 <div>
-  @if ($paginator->hasPages())
+  @if($paginator->hasPages())
     <nav class="d-flex flex-row align-items-center justify-content-between">
 
       <div>

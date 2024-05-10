@@ -13,6 +13,10 @@ trait WithPagination
 {
     use LivewirePagination;
 
+    protected bool $topPagination = false;
+
+    protected bool $bottomPagination = true;
+
     public function paginator(Builder $query): Paginator
     {
         return $this->simplePagination()

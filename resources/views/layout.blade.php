@@ -4,6 +4,10 @@
     @include("wire-table::$theme.style")
   @endonce
 
+  @if($this->topPagination)
+    {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView()) }}
+  @endif
+
   <div class="wt-wrapper">
     <div class="wt-loading-wrap" wire:loading.flex>
       <div class="wt-loading">
@@ -27,6 +31,8 @@
     </x-wiretable::table>
   </div>
 
-  {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView()) }}
+  @if($this->bottomPagination)
+    {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView()) }}
+  @endif
 
 </div>
