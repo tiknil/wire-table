@@ -2,28 +2,41 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.5.1 - 2024-06-07
+
+- feat: make paginatedData an accessible computed property
+-
+
 ## 1.5.0 - 2024-05-10
+
 - feat: support for pagination links on top of the table
 
 ## 1.4.0 - 2024-05-08
+
 - feat: Update support to Laravel 11
 
 ## 1.3.0 - 2024-02-26
+
 - Feat: Basic support for bulk selection
 - Renamed bootstrap theme references to bs (backward-compatible)
 
 ## 1.2.0 - 2024-01-31
+
 - Feat: Added global wiretable:reload event to reload tables data
 - Removed unused layout references
 
 ## 1.1.2 - 2024-01-29
+
 - Fix: use the proper view for simple pagination links
 
 ## 1.1.1 - 2024-01-11
+
 - Fix: JS error when changing sorting due to overlap between sortBy method and property
 
 ## 1.1.0 - 2024-01-11
-- BREAKING: ResetPageOnUpdate is not included by default, but it's automatically added when using the artisan `make:wiretable` command
+
+- BREAKING: ResetPageOnUpdate is not included by default, but it's automatically added when using the
+  artisan `make:wiretable` command
 - Fix: updated the stub namespace to the new Livewire v3 default namespace
 - Fix: updated PHP and Laravel dependencies according to new livewire requirements
 

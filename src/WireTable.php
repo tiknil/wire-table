@@ -66,7 +66,7 @@ abstract class WireTable extends Component
     protected function layoutData(): array
     {
         return [
-            'paginator' => $this->paginatedData,
+            'paginator' => $this->paginatedData(),
             'theme' => $this->theme(),
             'iconTheme' => $this->iconTheme(),
         ];
