@@ -5,7 +5,6 @@ All notable changes to `wire-table` will be documented in this file
 ## 1.5.1 - 2024-06-07
 
 - feat: make paginatedData an accessible computed property
--
 
 ## 1.5.0 - 2024-05-10
 
