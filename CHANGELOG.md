@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 1.5.2 - 2024-06-07
+
+- fix: remove duplicated query when accessing paginatedData
+
 ## 1.5.1 - 2024-06-07
 
 - feat: make paginatedData an accessible computed property
