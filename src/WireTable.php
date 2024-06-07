@@ -3,7 +3,9 @@
 namespace WireTable;
 
 use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use WireTable\Data\Column;
@@ -43,7 +45,13 @@ abstract class WireTable extends Component
         return view('wire-table::layout')->with($this->layoutData());
     }
 
-    protected function layoutData(): array
+    #[On('wiretable:reload')]
+    public function reload()
+    {
+    }
+
+    #[Computed]
+    public function paginatedData(): Paginator
     {
         $query = $this->query();
         $query = $this->filter($query);
@@ -52,19 +60,16 @@ abstract class WireTable extends Component
             $query = $this->applySorting($query);
         }
 
-        $paginator = $this->paginator($query);
+        return $this->paginator($query);
+    }
 
+    protected function layoutData(): array
+    {
         return [
-            'paginator' => $paginator,
+            'paginator' => $this->paginatedData,
             'theme' => $this->theme(),
             'iconTheme' => $this->iconTheme(),
         ];
-    }
-
-    #[On('wiretable:reload')]
-    public function reload()
-    {
-
     }
 
     protected function theme(): string
