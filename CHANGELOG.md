@@ -2,6 +2,11 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+
+## 1.5.3 - 2025-02-28
+
+- fix: pagination for the bs4 theme did not support livewire 3
+
 ## 1.5.2 - 2024-06-07
 
 - fix: remove duplicated query when accessing paginatedData

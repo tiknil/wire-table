@@ -5,7 +5,7 @@
         "tiknil",
         "wire-table"
     ],
-    "version": "1.5.2",
+    "version": "1.5.3",
     "homepage": "https://github.com/tiknil/wire-table",
     "license": "MIT",
     "type": "library",
