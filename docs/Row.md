@@ -7,7 +7,7 @@ You can fully customize how the row is rendered by implementing the `renderRow` 
 ```php
 public function renderRow($item): string|View
 {
-    return view('backend.users.table-row')->with(['user' => $row]);
+    return view('backend.users.table-row')->with(['user' => $item]);
 }
 ```
 
