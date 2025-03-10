@@ -3,6 +3,10 @@
 All notable changes to `wire-table` will be documented in this file
 
 
+## 1.6.0 - 2025-03-10
+
+- feat: Update support to Laravel 12
+
 ## 1.5.3 - 2025-02-28
 
 - fix: pagination for the bs4 theme did not support livewire 3
