@@ -2,6 +2,9 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 2.0.0 - 2026-03-17
+
+- BREAKING: wire-table now requires livewire 4.0
 
 ## 1.6.0 - 2025-03-10
 
