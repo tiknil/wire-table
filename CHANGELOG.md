@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 2.1.0 - 2026-03-17
+
+- Support for Laravel 12
+
 ## 2.0.0 - 2026-03-17
 
 - BREAKING: wire-table now requires livewire 4.0
