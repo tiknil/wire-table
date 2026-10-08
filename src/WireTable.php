@@ -46,9 +46,7 @@ abstract class WireTable extends Component
     }
 
     #[On('wiretable:reload')]
-    public function reload()
-    {
-    }
+    public function reload() {}
 
     #[Computed]
     public function paginatedData(): Paginator
@@ -69,6 +67,8 @@ abstract class WireTable extends Component
             'paginator' => $this->paginatedData,
             'theme' => $this->theme(),
             'iconTheme' => $this->iconTheme(),
+            'scrollTo' => $this->scrollToSelector(),
+            'scrollOffset' => $this->scrollOffset(),
         ];
     }
 

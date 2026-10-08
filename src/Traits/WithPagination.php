@@ -48,4 +48,18 @@ trait WithPagination
     {
         return $this->simplePagination() ? "wire-table::{$this->theme()}.simple-pagination" : "wire-table::{$this->theme()}.pagination";
     }
+
+    public function scrollToSelector(): string|false
+    {
+        return property_exists($this, 'scrollTo')
+            ? $this->scrollTo
+            : config('wire-table.pagination.scroll-to');
+    }
+
+    public function scrollOffset(): string
+    {
+        return property_exists($this, 'scrollOffset')
+            ? $this->scrollOffset
+            : config('wire-table.pagination.scroll-offset');
+    }
 }

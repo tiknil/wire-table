@@ -15,8 +15,7 @@ class Header extends Component
         public array $columns,
         private string $theme,
         private string $iconTheme,
-    ) {
-    }
+    ) {}
 
     public function render(): View
     {

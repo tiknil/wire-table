@@ -45,7 +45,7 @@ class Column
      * @param  string|null  $dateFormat  Carbon date format
      * @param  Closure|null  $map  Map the row data to the cell contents
      * @param  bool  $isRaw  Dangerous. True if data contains some html that should not be escaped.
-     * Not required when using a custom view
+     *                       Not required when using a custom view
      * @return static
      */
     public static function create(

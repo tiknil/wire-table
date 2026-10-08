@@ -7,9 +7,7 @@ use Illuminate\View\Component;
 
 class EmptyRow extends Component
 {
-    public function __construct(private string $theme)
-    {
-    }
+    public function __construct(private string $theme) {}
 
     public function render(): View
     {

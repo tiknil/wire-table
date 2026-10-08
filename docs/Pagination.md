@@ -25,6 +25,42 @@ public bool $simplePagination = true;
 public int $pageSize = 20;
 ```
 
+### Scroll on page change
+
+By default, on page change the table scrolls to the component root (`.wt`).
+You can customize the target with a CSS selector, or disable it entirely:
+
+**Globally** (in `config/wire-table.php`):
+```php
+'pagination' => [
+    'scroll-to' => '#main-content', // or false to disable
+],
+```
+
+**Locally**, in your table class:
+```php
+protected string|false $scrollTo = '#main-content';
+```
+
+An optional pixel offset can be set to account for fixed headers:
+
+**Globally**:
+```php
+'pagination' => [
+    'scroll-to' => '#main-content',
+    'scroll-offset' => '4rem',
+],
+```
+
+**Locally**:
+```php
+protected string|false $scrollTo = '#main-content';
+protected string $scrollOffset = '4rem';
+```
+
+When `scrollTo` is `false` no scrolling occurs.
+When `scrollOffset` is empty, `scrollIntoView` is used without margin.
+
 In case you need to reset the current page (e.g. when a filter changes), you can do so with the `resetPage()` method.
 
 ### Paginator

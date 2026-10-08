@@ -1,3 +1,11 @@
+@php
+  if (! isset($scrollTo)) {
+      $scrollTo = '.wt';
+  }
+
+  $scrollOffset ??= '4rem';
+@endphp
+
 <div>
   @if($paginator->hasPages())
     <nav class="d-flex flex-row align-items-center justify-content-between">
@@ -17,11 +25,11 @@
         @else
           @if(method_exists($paginator,'getCursorName'))
             <li class="page-item">
-              <button dusk="previousPage" type="button" class="page-link" wire:click="setPage('{{$paginator->previousCursor()->encode()}}','{{ $paginator->getCursorName() }}')" wire:loading.attr="disabled" rel="prev">&lsaquo;</button>
+              <button dusk="previousPage" type="button" class="page-link" wire:click="setPage('{{$paginator->previousCursor()->encode()}}','{{ $paginator->getCursorName() }}')" x-on:click="wireTableScrollTo($event, '{{ $scrollTo }}', '{{ $scrollOffset }}')" wire:loading.attr="disabled" rel="prev">&lsaquo;</button>
             </li>
           @else
             <li class="page-item">
-              <button type="button" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" rel="prev">&lsaquo;</button>
+              <button type="button" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="previousPage('{{ $paginator->getPageName() }}')" x-on:click="wireTableScrollTo($event, '{{ $scrollTo }}', '{{ $scrollOffset }}')" wire:loading.attr="disabled" rel="prev">&lsaquo;</button>
             </li>
           @endif
         @endif
@@ -30,11 +38,11 @@
         @if ($paginator->hasMorePages())
           @if(method_exists($paginator,'getCursorName'))
             <li class="page-item">
-              <button dusk="nextPage" type="button" class="page-link" wire:click="setPage('{{$paginator->nextCursor()->encode()}}','{{ $paginator->getCursorName() }}')" wire:loading.attr="disabled" rel="next">&rsaquo;</button>
+              <button dusk="nextPage" type="button" class="page-link" wire:click="setPage('{{$paginator->nextCursor()->encode()}}','{{ $paginator->getCursorName() }}')" x-on:click="wireTableScrollTo($event, '{{ $scrollTo }}', '{{ $scrollOffset }}')" wire:loading.attr="disabled" rel="next">&rsaquo;</button>
             </li>
           @else
             <li class="page-item">
-              <button type="button" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" rel="next">&rsaquo;</button>
+              <button type="button" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="nextPage('{{ $paginator->getPageName() }}')" x-on:click="wireTableScrollTo($event, '{{ $scrollTo }}', '{{ $scrollOffset }}')" wire:loading.attr="disabled" rel="next">&rsaquo;</button>
             </li>
           @endif
         @else

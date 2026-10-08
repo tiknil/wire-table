@@ -27,8 +27,8 @@ class ElementStyle
     }
 
     /**
-     * @param  string|array  $classList class names for the element. raw string or array of strings
-     * @param  string|array  $style custom styling for the element. raw string or dictionary
+     * @param  string|array  $classList  class names for the element. raw string or array of strings
+     * @param  string|array  $style  custom styling for the element. raw string or dictionary
      * @return static
      */
     public static function create(string|array $classList = '', string|array $style = ''): self

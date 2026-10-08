@@ -11,9 +11,7 @@ class Layout extends Component
     public function __construct(
         public Paginator $paginator,
         public string $theme,
-        public string $iconTheme)
-    {
-    }
+        public string $iconTheme) {}
 
     public function render(): View
     {

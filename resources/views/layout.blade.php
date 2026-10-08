@@ -2,10 +2,22 @@
 
   @once
     @include("wire-table::$theme.style")
+    <script>
+      window.wireTableScrollTo = function (event, selector, offset) {
+        const target = event.currentTarget.closest(selector) || document.querySelector(selector);
+
+        if (!target) {
+          return;
+        }
+
+        target.style.setProperty('scroll-margin-top', offset);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+    </script>
   @endonce
 
   @if($this->topPagination)
-    {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView()) }}
+    {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset]) }}
   @endif
 
   <div class="wt-wrapper">
@@ -32,7 +44,7 @@
   </div>
 
   @if($this->bottomPagination)
-    {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView()) }}
+    {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset]) }}
   @endif
 
 </div>

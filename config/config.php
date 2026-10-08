@@ -43,6 +43,14 @@ return [
         'size' => 10,
 
         'each-side' => 1,
+
+        'scroll-to' => '.wt',
+
+        /*
+        | Pixel offset from the top when scrolling on page change.
+        | Useful to account for fixed headers.
+        */
+        'scroll-offset' => '4rem',
     ],
 
     /*
