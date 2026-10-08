@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 2.2.0 - 2026-10-08
+
+- Added support for custom scrollTo targets
+
 ## 2.1.0 - 2026-03-17
 
 - Support for Laravel 12
