@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 2.2.2 - 2026-10-22
+
+- Fix: missing nested configuration values where not loaded from default
+
 ## 2.2.0 - 2026-10-08
 
 - Added support for custom scrollTo targets
