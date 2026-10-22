@@ -2,6 +2,7 @@
 
 namespace WireTable;
 
+use App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use WireTable\Console\MakeWireTableCommand;
@@ -50,7 +51,33 @@ class WireTableServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'wire-table');
+        if (!App::configurationIsCached()) {
+            $packageConfig = require __DIR__.'/../config/config.php';
+            $publishedConfig = $this->app['config']->get('wire-table', []);
+
+            // Serve il mergeConfigRecursive così anche valori innestati al secondo livello usando il default della libreria se assenti nel config di progetto
+            $mergedConfig = $this->mergeConfigRecursive($packageConfig, $publishedConfig);
+
+            $this->app['config']->set('wire-table', $mergedConfig);
+        }
+    }
+
+    private function mergeConfigRecursive(array $base, array $replacement): array
+    {
+        foreach ($replacement as $key => $value) {
+            if (is_array($value) && isset($base[$key]) && is_array($base[$key])) {
+                // Se è un array numerico (lista), l'utente sovrascrive completamente l'elenco
+                if (array_is_list($value)) {
+                    $base[$key] = $value;
+                } else {
+                    // Se è un array associativo (come 'pagination'), continua il merge ricorsivo
+                    $base[$key] = $this->mergeConfigRecursive($base[$key], $value);
+                }
+            } else {
+                $base[$key] = $value;
+            }
+        }
+
+        return $base;
     }
 }
