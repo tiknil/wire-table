@@ -170,6 +170,10 @@ public string $tableClass = 'table-bordered table-striped';
 
 Config global: `config/wire-table.php > theme`, `class`, `icon-theme`.
 
+### Tema scuro
+
+L'overlay e il box di loading si adattano al tema scuro di bootstrap (`data-bs-theme="dark"` in bs 5.3+, oppure `[data-bs-theme="dark"]`/`.dark` su un antenato per bs più vecchi e bs4). Personalizzabili via le css variables `--wt-overlay-color`, `--wt-loading-bg`, `--wt-loading-border` su `.wt`.
+
 ### Tema custom
 
 Pubblica le views, crea una cartella col nome del tema in `resources/views/vendor/wire-table/` con i blade: `empty-row`, `header`, `loading`, `pagination`, `simple-pagination`, `style`, `table`.

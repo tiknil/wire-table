@@ -35,6 +35,23 @@ class UsersTable extends WireTable {
     ...
 ```
 
+### Dark mode
+
+The `bs5` theme follows bootstrap's color mode automatically: when dark mode is active (bootstrap 5.3+
+`data-bs-theme="dark"`), the loading overlay and boxes switch to dark colors. On older bootstrap 5
+releases, and on `bs4`, the dark palette is applied when an ancestor carries `[data-bs-theme="dark"]`
+or the `.dark` class.
+
+You can fine tune the colors by overriding the following css variables on `.wt` (or any ancestor):
+
+```css
+.wt {
+  --wt-overlay-color: rgba(0, 0, 0, 0.5); /* loading overlay background */
+  --wt-loading-bg: #f8f9fa;               /* loading spinner box background */
+  --wt-loading-border: #dee2e6;           /* loading spinner box border */
+}
+```
+
 ### Customize a default theme
 
 If you need to edit an existing theme, you need to [publish](./README.md#publish-files) the views and then edit the

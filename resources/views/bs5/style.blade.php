@@ -1,4 +1,17 @@
 <style lang="css" wire:ignore>
+  .wt {
+    --wt-overlay-color: rgba(var(--bs-body-bg-rgb, 255, 255, 255), 0.7);
+    --wt-loading-bg: var(--bs-body-bg, var(--bs-white, #fff));
+    --wt-loading-border: var(--bs-border-color, var(--bs-gray-300, #dee2e6));
+  }
+
+  [data-bs-theme="dark"] .wt,
+  .dark .wt {
+    --wt-overlay-color: rgba(var(--bs-body-bg-rgb, 33, 37, 41), 0.7);
+    --wt-loading-bg: var(--bs-body-bg, #212529);
+    --wt-loading-border: var(--bs-border-color, #495057);
+  }
+
   .wt .wt-wrapper {
     overflow-x: auto;
     position: relative;
@@ -12,9 +25,8 @@
     left: 0;
     right: 0;
 
-    background-color: var(--wt-overlay-color, rgba(255, 255, 255, 0.7));
+    background-color: var(--wt-overlay-color);
 
-    {{-- display: flex is set dynamically by livewire --}}
     justify-content: center;
     align-items: flex-start;
     padding: 4rem;
@@ -23,8 +35,8 @@
   .wt .wt-wrapper .wt-loading-wrap .wt-loading {
     padding: 2rem 4rem;
     border-radius: 0.5rem;
-    background-color: var(--bs-white);
-    border: 1px solid var(--bs-gray-300);
+    background-color: var(--wt-loading-bg);
+    border: 1px solid var(--wt-loading-border);
   }
 
   .wt .wt-wrapper table th.sortable {
