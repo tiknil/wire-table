@@ -42,6 +42,25 @@ trait WithPagination
     }
 
     /**
+     * Whether to show the page size selector above the table
+     * (enabled by the WithCachedPageSize trait)
+     */
+    public function showPageSizeSelector(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function pageSizeOptions(): array
+    {
+        return property_exists($this, 'pageSizeOptions')
+            ? $this->pageSizeOptions
+            : config('wire-table.pagination.size-options', [10, 25, 50, 100]);
+    }
+
+    /**
      * View for displaying the pagination links
      */
     public function paginationView(): string

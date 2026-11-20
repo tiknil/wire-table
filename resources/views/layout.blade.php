@@ -47,4 +47,8 @@
     {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset]) }}
   @endif
 
+  @if($this->showPageSizeSelector())
+    @include("wire-table::$theme.page-size")
+  @endif
+
 </div>

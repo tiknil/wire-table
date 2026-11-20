@@ -34,6 +34,7 @@ return [
     | simple:       True for simple pagination
     |               see: https://laravel.com/docs/10.x/pagination#simple-pagination
     | size:         number of elements in each page
+    | size-options: page sizes selectable by the user (see WithCachedPageSize trait)
     | each-side:    number of links to display on the side of the current active page.
     |               see: https://laravel.com/docs/10.x/pagination#adjusting-the-pagination-link-window
     */
@@ -41,6 +42,8 @@ return [
         'simple' => false,
 
         'size' => 10,
+
+        'size-options' => [10, 25, 50, 100],
 
         'each-side' => 1,
 

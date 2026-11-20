@@ -25,6 +25,27 @@ public bool $simplePagination = true;
 public int $pageSize = 20;
 ```
 
+### Page size selector
+
+Add the `WithCachedPageSize` trait to show a "rows per page" selector below the table (under the page links, left aligned).
+The chosen value is stored in cache (forever), separately for each user and for each page
+(URL path + table class) where the table is displayed.
+
+```php
+use WireTable\Traits\WithCachedPageSize;
+
+class UsersTable extends WireTable
+{
+    use WithCachedPageSize;
+
+    // optional, default: [10, 25, 50, 100]
+    public array $pageSizeOptions = [10, 30, 70];
+}
+```
+
+Options can also be set globally with `pagination.size-options` in the config file.
+Guests are tracked by session id.
+
 ### Scroll on page change
 
 By default, on page change the table scrolls to the component root (`.wt`).
