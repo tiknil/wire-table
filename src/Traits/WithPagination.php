@@ -42,8 +42,8 @@ trait WithPagination
     }
 
     /**
-     * Whether to show the page size selector above the table
-     * (enabled by the WithCachedPageSize trait)
+     * Whether to show the page size selector below the table
+     * (enabled by the WithPageSize trait)
      */
     public function showPageSizeSelector(): bool
     {

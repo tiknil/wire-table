@@ -34,7 +34,7 @@ return [
     | simple:       True for simple pagination
     |               see: https://laravel.com/docs/10.x/pagination#simple-pagination
     | size:         number of elements in each page
-    | size-options: page sizes selectable by the user (see WithCachedPageSize trait)
+    | size-options: page sizes selectable by the user (see WithPageSize trait)
     | each-side:    number of links to display on the side of the current active page.
     |               see: https://laravel.com/docs/10.x/pagination#adjusting-the-pagination-link-window
     */
@@ -44,6 +44,14 @@ return [
         'size' => 10,
 
         'size-options' => [10, 25, 50, 100],
+
+        // Remember the page size chosen by the user (WithPageSize trait)
+        // enabled: set to false to disable the cache
+        // days:    days after which an unused value expires (refreshed on every use)
+        'size-cache' => [
+            'enabled' => true,
+            'days' => 30,
+        ],
 
         'each-side' => 1,
 

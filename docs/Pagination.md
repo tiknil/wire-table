@@ -27,20 +27,31 @@ public int $pageSize = 20;
 
 ### Page size selector
 
-Add the `WithCachedPageSize` trait to show a "rows per page" selector below the table (under the page links, left aligned).
-The chosen value is stored in cache (forever), separately for each user and for each page
+Add the `WithPageSize` trait to show a "rows per page" selector below the table (under the page links, left aligned).
+The chosen value is stored in cache, separately for each user and for each page
 (URL path + table class) where the table is displayed.
 
 ```php
-use WireTable\Traits\WithCachedPageSize;
+use WireTable\Traits\WithPageSize;
 
 class UsersTable extends WireTable
 {
-    use WithCachedPageSize;
+    use WithPageSize;
 
     // optional, default: [10, 25, 50, 100]
     public array $pageSizeOptions = [10, 30, 70];
 }
+```
+
+#### Cache
+
+The cached value expires after 30 days of inactivity (the expiration is refreshed every time it's used),
+so the cache doesn't grow forever. Customize or disable it globally in `pagination.size-cache`
+or in the component:
+
+```php
+public bool $cachePageSize = false;     // disable the cache: the choice lasts only for the current component state
+public int $pageSizeCacheDays = 7;      // days before an unused value expires
 ```
 
 Options can also be set globally with `pagination.size-options` in the config file.
