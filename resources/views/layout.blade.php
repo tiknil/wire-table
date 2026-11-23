@@ -20,7 +20,7 @@
     @endonce
 
     @if ($this->topPagination)
-        {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset]) }}
+        {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset, 'showPageSize' => $this->showPageSizeSelector()]) }}
     @endif
 
     <div class="wt-wrapper">
@@ -47,10 +47,11 @@
     </div>
 
     @if ($this->bottomPagination)
-        {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset]) }}
-        @if ($this->showPageSizeSelector())
-            @include("wire-table::$theme.page-size")
-        @endif
+        {{ $paginator->onEachSide(config('wire-table.pagination.each-side'))->links($this->paginationView(), ['scrollTo' => $scrollTo, 'scrollOffset' => $scrollOffset, 'showPageSize' => $this->showPageSizeSelector()]) }}
+    @endif
+
+    @if ($this->showPageSizeSelector() && !$this->topPagination && !$this->bottomPagination)
+        @include("wire-table::$theme.page-size")
     @endif
 
 </div>

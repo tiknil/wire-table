@@ -7,15 +7,20 @@
 @endphp
 
 <div>
-  @if ($paginator->hasPages())
+  @if($paginator->hasPages() || ($showPageSize ?? false))
     <nav class="d-flex flex-row align-items-center justify-content-between">
 
-      <div>
-        <p class="small text-muted">
+      <div class="d-flex align-items-center">
+        <p class="small text-muted mb-0 me-3">
           {!! __('wire-table::table.result_count', [ 'count' => "<span class='fw-semibold'>{$paginator->total()}</span>"]) !!}
         </p>
+
+        @if($showPageSize ?? false)
+          @include("wire-table::bs5.page-size")
+        @endif
       </div>
 
+      @if($paginator->hasPages())
       <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
@@ -58,6 +63,7 @@
           </li>
         @endif
       </ul>
+      @endif
     </nav>
   @endif
 </div>

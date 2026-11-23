@@ -27,7 +27,7 @@ public int $pageSize = 20;
 
 ### Page size selector
 
-Add the `WithPageSize` trait to show a "rows per page" selector below the table (under the page links, left aligned).
+Add the `WithPageSize` trait to show a "rows per page" selector below the table (next to the results count, in both top and bottom pagination).
 The chosen value is stored in cache, separately for each user and for each page
 (URL path + table class) where the table is displayed.
 
