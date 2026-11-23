@@ -8,5 +8,6 @@ return [
     'sort_label' => 'Sort by this column',
 
     'result_count' => ':count results',
+    'page_size' => 'Rows per page',
     'simple_page_number' => 'Page :page',
 ];
