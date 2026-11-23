@@ -2,6 +2,10 @@
 
 All notable changes to `wire-table` will be documented in this file
 
+## 2.3.0
+
+- Feat: Page size customization by user
+
 ## 2.2.3
 
 - Feat: dark mode support for the loading overlay and spinner box (`bs5`, `bs4`)
